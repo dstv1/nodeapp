@@ -10,11 +10,15 @@ app.use(express.urlencoded({ extended: false }));
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb://mongo:27017/docker-node-mongo',
-    { useNewUrlParser: true }
+    'mongodb://10.128.0.21:27017,10.128.0.22:27017,10.128.0.23:27017/docker-node-mongo?replicaSet=rs0',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
   )
-  .then(() => console.log('MongoDB Connected'))
+  .then(() => console.log('MongoDB Connected to Replica Set'))
   .catch(err => console.log(err));
+
 
 const Item = require('./models/Item');
 
