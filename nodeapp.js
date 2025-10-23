@@ -11,10 +11,6 @@ app.use(express.urlencoded({ extended: false }));
 mongoose
   .connect(
     'mongodb://10.200.200.3:27017,10.200.200.4:27017,10.200.200.5:27017/?replicaSet=rs0',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
   )
   .then(() => console.log('MongoDB Connected to Replica Set'))
   .catch(err => console.log(err));
