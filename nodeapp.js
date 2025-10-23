@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb://10.200.200.3:27017,10.200.200.4:27017,10.200.200.5:27017/?replicaSet=rs0',
+    'mongodb://192.168.88.3:27017,192.168.88.4:27017,192.168.88.5:27017/?replicaSet=rs0',
   )
   .then(() => console.log('MongoDB Connected to Replica Set'))
   .catch(err => console.log(err));
