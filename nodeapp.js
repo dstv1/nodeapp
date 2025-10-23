@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb://10.128.0.21:27017,10.128.0.22:27017,10.128.0.23:27017/docker-node-mongo?replicaSet=rs0',
+    'mongodb://mongodb://10.200.200.3:27017,10.200.200.4:27017,10.200.200.5:27017/?replicaSet=rs0',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true
