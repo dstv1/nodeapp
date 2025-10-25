@@ -15,9 +15,14 @@ mongoose
   .then(() => console.log('MongoDB Connected to Replica Set'))
   .catch(err => console.log(err));
 
-
 const Item = require('./models/Item');
 
+// Health check endpoint for GKE Ingress
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
+// Main route
 app.get('/', (req, res) => {
   Item.find()
     .then(items => res.render('index', { items }))
